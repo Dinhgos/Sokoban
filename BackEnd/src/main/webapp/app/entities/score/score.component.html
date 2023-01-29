@@ -1,0 +1,75 @@
+<div>
+    <h2 id="page-heading">
+        <span>Scores</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-score" [routerLink]="['/score/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span>
+            Create a new Score
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="scores?.length === 0">
+        <span>No scores found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="scores && scores.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span>ID</span></th>
+                    <th scope="col" ><span>Value</span></th>
+                    <th scope="col" ><span>Date</span></th>
+                    <th scope="col" ><span>Map</span></th>
+                    <th scope="col" ><span>Player</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let score of scores ;trackBy: trackId">
+                    <td><a [routerLink]="['/score', score.id, 'view']">{{ score.id }}</a></td>
+                    <td>{{ score.value }}</td>
+                    <td>{{ score.date | date:'medium' }}</td>
+                    <td>
+                        <div *ngIf="score.map">
+                            <a [routerLink]="['/map', score.map?.id, 'view']" >{{ score.map?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="score.player">
+                            <a [routerLink]="['/player', score.player?.id, 'view']" >{{ score.player?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/score', score.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/score', score.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(score)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

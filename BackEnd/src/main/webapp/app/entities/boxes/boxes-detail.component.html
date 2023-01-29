@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="boxes">
+            <h2><span>Boxes</span> {{ boxes.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Position X</span></dt>
+                <dd>
+                    <span>{{ boxes.positionX }}</span>
+                </dd>
+                <dt><span>Position Y</span></dt>
+                <dd>
+                    <span>{{ boxes.positionY }}</span>
+                </dd>
+                <dt><span>Position Z</span></dt>
+                <dd>
+                    <span>{{ boxes.positionZ }}</span>
+                </dd>
+                <dt><span>Save</span></dt>
+                <dd>
+                    <div *ngIf="boxes.save">
+                        <a [routerLink]="['/save', boxes.save?.id, 'view']">{{ boxes.save?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span>Map</span></dt>
+                <dd>
+                    <div *ngIf="boxes.map">
+                        <a [routerLink]="['/map', boxes.map?.id, 'view']">{{ boxes.map?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/boxes', boxes.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

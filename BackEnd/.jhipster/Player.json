@@ -1,0 +1,45 @@
+{
+  "name": "Player",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "unique"
+      ]
+    },
+    {
+      "fieldName": "password",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "level",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "score",
+      "otherEntityRelationshipName": "player",
+      "relationshipName": "score"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "save",
+      "otherEntityRelationshipName": "player",
+      "relationshipName": "save"
+    }
+  ],
+  "changelogDate": "20210412155111",
+  "entityTableName": "player",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

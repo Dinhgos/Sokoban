@@ -1,0 +1,71 @@
+<div>
+    <h2 id="page-heading">
+        <span>Goal Positions</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-goal-position" [routerLink]="['/goal-position/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span>
+            Create a new Goal Position
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="goalPositions?.length === 0">
+        <span>No goalPositions found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="goalPositions && goalPositions.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span>ID</span></th>
+                    <th scope="col" ><span>Position X</span></th>
+                    <th scope="col" ><span>Position Y</span></th>
+                    <th scope="col" ><span>Position Z</span></th>
+                    <th scope="col" ><span>Map</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let goalPosition of goalPositions ;trackBy: trackId">
+                    <td><a [routerLink]="['/goal-position', goalPosition.id, 'view']">{{ goalPosition.id }}</a></td>
+                    <td>{{ goalPosition.positionX }}</td>
+                    <td>{{ goalPosition.positionY }}</td>
+                    <td>{{ goalPosition.positionZ }}</td>
+                    <td>
+                        <div *ngIf="goalPosition.map">
+                            <a [routerLink]="['/map', goalPosition.map?.id, 'view']" >{{ goalPosition.map?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/goal-position', goalPosition.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/goal-position', goalPosition.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(goalPosition)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

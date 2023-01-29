@@ -1,0 +1,44 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="goalPosition">
+            <h2><span>Goal Position</span> {{ goalPosition.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Position X</span></dt>
+                <dd>
+                    <span>{{ goalPosition.positionX }}</span>
+                </dd>
+                <dt><span>Position Y</span></dt>
+                <dd>
+                    <span>{{ goalPosition.positionY }}</span>
+                </dd>
+                <dt><span>Position Z</span></dt>
+                <dd>
+                    <span>{{ goalPosition.positionZ }}</span>
+                </dd>
+                <dt><span>Map</span></dt>
+                <dd>
+                    <div *ngIf="goalPosition.map">
+                        <a [routerLink]="['/map', goalPosition.map?.id, 'view']">{{ goalPosition.map?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/goal-position', goalPosition.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

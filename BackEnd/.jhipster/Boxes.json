@@ -1,0 +1,44 @@
+{
+  "name": "Boxes",
+  "fields": [
+    {
+      "fieldName": "positionX",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "positionY",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "positionZ",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "save",
+      "otherEntityRelationshipName": "boxes",
+      "relationshipName": "save",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "map",
+      "otherEntityRelationshipName": "boxes",
+      "relationshipName": "map",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210412155511",
+  "entityTableName": "boxes",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

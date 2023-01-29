@@ -1,0 +1,40 @@
+{
+  "name": "Score",
+  "fields": [
+    {
+      "fieldName": "value",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "date",
+      "fieldType": "Instant"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "map",
+      "otherEntityRelationshipName": "score",
+      "relationshipName": "map",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "player",
+      "otherEntityRelationshipName": "score",
+      "relationshipName": "player",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210412155211",
+  "entityTableName": "score",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

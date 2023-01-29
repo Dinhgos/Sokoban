@@ -1,0 +1,60 @@
+{
+  "name": "Map",
+  "fields": [
+    {
+      "fieldName": "playerPositionX",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "playerPositionY",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "playerPositionZ",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "score",
+      "otherEntityRelationshipName": "map",
+      "relationshipName": "score"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "save",
+      "otherEntityRelationshipName": "map",
+      "relationshipName": "save"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "goalPosition",
+      "otherEntityRelationshipName": "map",
+      "relationshipName": "goalPosition"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "walls",
+      "otherEntityRelationshipName": "map",
+      "relationshipName": "walls"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "boxes",
+      "otherEntityRelationshipName": "map",
+      "relationshipName": "boxes"
+    }
+  ],
+  "changelogDate": "20210412155611",
+  "entityTableName": "map",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

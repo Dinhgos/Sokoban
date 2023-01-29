@@ -1,0 +1,58 @@
+{
+  "name": "Save",
+  "fields": [
+    {
+      "fieldName": "moves",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "time",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "playerPositionX",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "playerPositionY",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "playerPositionZ",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "boxes",
+      "otherEntityRelationshipName": "save",
+      "relationshipName": "boxes"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "player",
+      "otherEntityRelationshipName": "save",
+      "relationshipName": "player",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "map",
+      "otherEntityRelationshipName": "save",
+      "relationshipName": "map",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210412155711",
+  "entityTableName": "save",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

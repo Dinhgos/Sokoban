@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="score">
+            <h2><span>Score</span> {{ score.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Value</span></dt>
+                <dd>
+                    <span>{{ score.value }}</span>
+                </dd>
+                <dt><span>Date</span></dt>
+                <dd>
+                    <span>{{ score.date }}</span>
+                </dd>
+                <dt><span>Map</span></dt>
+                <dd>
+                    <div *ngIf="score.map">
+                        <a [routerLink]="['/map', score.map?.id, 'view']">{{ score.map?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span>Player</span></dt>
+                <dd>
+                    <div *ngIf="score.player">
+                        <a [routerLink]="['/player', score.player?.id, 'view']">{{ score.player?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/score', score.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+{
+  "name": "GoalPosition",
+  "fields": [
+    {
+      "fieldName": "positionX",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "positionY",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "positionZ",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "map",
+      "otherEntityRelationshipName": "goalPosition",
+      "relationshipName": "map",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210412155411",
+  "entityTableName": "goal_position",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

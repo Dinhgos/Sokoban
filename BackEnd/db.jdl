@@ -1,0 +1,53 @@
+entity Player {
+  name String unique,
+  password String
+  level Integer
+}
+
+entity Score {
+  value Integer,
+  date Instant
+}
+
+entity Walls {
+  positionX Integer
+  positionY Integer
+  positionZ Integer 
+}
+
+entity GoalPosition {
+  positionX Integer
+  positionY Integer
+  positionZ Integer 
+}
+
+entity Boxes {
+  positionX Integer
+  positionY Integer
+  positionZ Integer 
+}
+
+entity Map {
+  playerPositionX Integer 
+  playerPositionY Integer 
+  playerPositionZ Integer 
+}
+
+entity Save {
+  moves Integer
+  time Integer
+  playerPositionX Integer
+  playerPositionY Integer
+  playerPositionZ Integer
+}
+
+relationship OneToMany {
+  Map to Score{map}
+  Save to Boxes{save}
+  Player to Score{player}
+  Player to Save{player}
+  Map to Save{map}
+  Map to GoalPosition{map}
+  Map to Walls{map}
+  Map to Boxes{map}
+}

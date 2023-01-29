@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="save">
+            <h2><span>Save</span> {{ save.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Moves</span></dt>
+                <dd>
+                    <span>{{ save.moves }}</span>
+                </dd>
+                <dt><span>Time</span></dt>
+                <dd>
+                    <span>{{ save.time }}</span>
+                </dd>
+                <dt><span>Player Position X</span></dt>
+                <dd>
+                    <span>{{ save.playerPositionX }}</span>
+                </dd>
+                <dt><span>Player Position Y</span></dt>
+                <dd>
+                    <span>{{ save.playerPositionY }}</span>
+                </dd>
+                <dt><span>Player Position Z</span></dt>
+                <dd>
+                    <span>{{ save.playerPositionZ }}</span>
+                </dd>
+                <dt><span>Player</span></dt>
+                <dd>
+                    <div *ngIf="save.player">
+                        <a [routerLink]="['/player', save.player?.id, 'view']">{{ save.player?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span>Map</span></dt>
+                <dd>
+                    <div *ngIf="save.map">
+                        <a [routerLink]="['/map', save.map?.id, 'view']">{{ save.map?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/save', save.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
